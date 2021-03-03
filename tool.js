@@ -12,3 +12,16 @@ function sleep(time,loop){
     })
 }
 
+//返回到顶部
+async function goTop(){
+    let innerHeight=window.scrollY;
+    let changeHeight=200;
+    for (let index = 0; innerHeight>200;index++) {
+        await sleep(50).then(()=>{
+            innerHeight-=changeHeight;
+            changeHeight+=changeHeight;
+            window.scrollTo(0,innerHeight);
+        })
+    }
+    window.scrollTo(0,0);
+}
